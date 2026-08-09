@@ -50,59 +50,53 @@
       <a href="#contacts">КОНТАКТЫ</a>
     </nav>
     <div class="header-actions">
-      <a class="header-link" href="mailto:info@areal-prom.ru">info@areal-prom.ru</a>
-      <a class="header-phone" href="tel:+79215317136">+7 921 531-71-36</a>
+      <a class="header-phone" href="tel:+79215317136"><span class="contact-icon" aria-hidden="true">☎</span>+7 921 531-71-36</a>
+      <a class="header-link" href="mailto:info@areal-prom.ru"><span class="contact-icon" aria-hidden="true">✉</span>info@areal-prom.ru</a>
       <a class="btn btn-small btn-arrow" href="#request"><span>ЗАЯВКА НА РАСЧЕТ</span><span class="btn-arrow-mark" aria-hidden="true">→</span></a>
     </div>
   </header>
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-
-    <img
-        src="assets/img/fon_main.png"
-        alt=""
-        class="hero-bg"
-        aria-hidden="true">
-
-    <div class="hero-inner">
-
-        <div class="pipeline-stage" aria-hidden="true">
-            <img
-                src="assets/img/fon.png"
-                alt="Трубопроводная инфографика"
-                class="pipeline-logo"
-                width="720"
-                height="320">
+      <img src="assets/img/fon_main.png" alt="" class="hero-bg" aria-hidden="true">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Инженерный подрядчик</p>
+          <h1 id="hero-title">Монтаж и проектирование трубопроводов и инженерных сетей</h1>
+          <span class="hero-rule" aria-hidden="true"></span>
+          <p class="hero-copy">Выполняем работы для промышленных, коммерческих и инфраструктурных объектов в СЗФО и по России.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#request">Получить коммерческое предложение</a>
+            <a class="btn btn-secondary" href="#services">Смотреть услуги</a>
+          </div>
         </div>
-
-        <p class="eyebrow">
-            Инженерный подрядчик
-        </p>
-
-        <h1 id="hero-title">
-            Монтаж и проектирование трубопроводов и инженерных сетей
-        </h1>
-
-        <p class="hero-copy">
-            Выполняем работы для промышленных,
-            коммерческих и инфраструктурных объектов
-            в СЗФО и по России.
-        </p>
-
-        <div class="hero-actions">
-            <a class="btn" href="#request">
-                Получить коммерческое предложение
-            </a>
-
-            <a class="btn btn-secondary" href="tel:+79215317136">
-                Позвонить
-            </a>
+        <div class="hero-visual" aria-hidden="true">
+          <img src="assets/img/fon_pipe.png" alt="">
         </div>
-
-    </div>
-
-</section>
+        <div class="hero-benefits" aria-label="Преимущества">
+          <article>
+            <span class="benefit-icon">♙</span>
+            <h3>Комплексный подход</h3>
+            <p>подход от проекта до запуска</p>
+          </article>
+          <article>
+            <span class="benefit-icon">✓</span>
+            <h3>Качество исполнения</h3>
+            <p>на всех этапах работ</p>
+          </article>
+          <article>
+            <span class="benefit-icon">▦</span>
+            <h3>Соблюдение сроков</h3>
+            <p>заранее планируем производство работ, координируем поставки материалов и ресурсы</p>
+          </article>
+          <article>
+            <span class="benefit-icon">◇</span>
+            <h3>Ответственное партнерство</h3>
+            <p>открыто взаимодействуем с заказчиком, оперативно решаем возникающие вопросы</p>
+          </article>
+        </div>
+      </div>
+    </section>
     <section class="quick-nav" aria-label="Основные направления">
       <a href="#service-pipelines">
         <span class="arrow-square"><span class="arrow-icon">→</span></span> Монтаж трубопроводов
@@ -155,6 +149,7 @@
       <div class="section-head">
         <p class="eyebrow">Услуги</p>
         <h2>Основные направления работ</h2>
+        <p>Карточки ведут на подробные страницы услуг с описанием работ, визуальными примерами и формой заявки.</p>
       </div>
       <div class="service-grid" id="services-list"></div>
     </section>
@@ -163,8 +158,14 @@
       <div class="section-head">
         <p class="eyebrow">Наши объекты</p>
         <h2>Проекты и выполненные работы</h2>
+        <p>Реализованные и типовые объекты с описанием задач, выполненных работ и результата.</p>
       </div>
-      <div class="project-grid" id="projects-list"></div>
+      <div class="projects-showcase">
+        <button class="slider-btn" type="button" aria-label="Предыдущий объект" data-project-prev>←</button>
+        <div class="project-tabs" id="project-tabs" role="tablist"></div>
+        <button class="slider-btn" type="button" aria-label="Следующий объект" data-project-next>→</button>
+      </div>
+      <div class="project-feature" id="projects-list"></div>
     </section>
 
     <section class="section" id="documents">
