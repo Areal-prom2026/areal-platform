@@ -1,8 +1,8 @@
 ﻿/* Подключение фирменного шрифта */
 @font-face {
-  font-family: 'Eurostile';
+  font-family: 'Aptos';
   src: url('../Aptos.ttf') format('truetype');
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -18,7 +18,7 @@
   --orange: #f36b21;
   --muted: #647180;
   --shadow: 0 18px 60px rgba(10, 31, 53, .14);
-  --font-primary: 'Eurostile', Inter, Arial, Helvetica, sans-serif;
+  --font-primary: 'Aptos', Arial, Helvetica, sans-serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -49,8 +49,8 @@ img, svg { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 28px;
-  min-height: 76px;
+  gap: 22px;
+  min-height: 90px;
   padding: 14px clamp(18px, 4vw, 56px);
   color: var(--white);
   background: rgba(10, 31, 53, .86);
@@ -58,22 +58,37 @@ img, svg { max-width: 100%; display: block; }
   backdrop-filter: blur(14px);
   font-family: var(--font-primary);
 }
-.brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0; }
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  color: var(--black);
-  font-weight: 900;
-  background: none;
-  font-family: var(--font-primary);
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 800;
+  letter-spacing: 0;
+  min-width: 0;
 }
-.brand-text { white-space: nowrap; }
-.main-nav { display: flex; justify-content: center; gap: 24px; font-size: 15px; }
+.brand-logo {
+  width: min(354px, 30vw);
+  height: auto;
+  flex: 0 1 auto;
+}
+.brand-divider {
+  width: 1px;
+  height: 42px;
+  background: rgba(255,255,255,.36);
+  flex: 0 0 auto;
+}
+.brand-text {
+  white-space: nowrap;
+  color: rgba(255,255,255,.92);
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+.main-nav { display: flex; justify-content: center; gap: 24px; font-size: clamp(18px, 1.15vw, 24px); }
 .main-nav a, .header-link, .header-phone { color: rgba(255,255,255,.86); }
 .main-nav a:hover, .header-link:hover, .header-phone:hover { color: var(--white); }
-.header-actions { display: flex; align-items: center; gap: 14px; font-size: 14px; }
+.header-actions { display: flex; align-items: center; gap: 14px; font-size: clamp(18px, 1.15vw, 24px); }
 .header-phone { font-weight: 700; }
 .menu-toggle { display: none; }
 .btn {
@@ -93,6 +108,20 @@ img, svg { max-width: 100%; display: block; }
 .btn:hover { transform: translateY(-2px); }
 .btn-secondary { color: var(--white); background: transparent; border-color: rgba(255,255,255,.38); }
 .btn-small { min-height: 38px; padding: 0 16px; }
+.btn-arrow {
+  gap: 12px;
+}
+.btn-arrow-mark {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--orange);
+  font-weight: 900;
+  line-height: 1;
+}
 /*
 .hero {
   position: relative;
@@ -212,18 +241,42 @@ h3 {
 }
 .quick-nav a {
   min-height: 118px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
   padding: 22px clamp(14px, 2vw, 28px);
   border-right: 1px solid var(--line);
   font-weight: 800;
-  color: var(--blue);
+  color: #1a1a1a;
   font-family: var(--font-primary);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color .3s ease, background .3s ease;
 }
-.quick-nav a:hover { background: var(--soft); }
-.quick-nav span { color: var(--orange); font-size: 13px; }
+.quick-nav a:hover { color: var(--orange); background: var(--soft); }
+.arrow-square {
+  display: inline-flex;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #cccccc;
+  border-radius: 8px;
+  background: transparent;
+  transition: border-color 0.3s ease;
+  flex-shrink: 0;
+}
+.quick-nav a:hover .arrow-square { border-color: var(--orange); }
+.arrow-icon {
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  font-size: 28px;
+  line-height: 1;
+  transform: rotate(-45deg) scale(2.5);
+  color: #333333;
+  transition: color 0.3s ease;
+}
+.quick-nav a:hover .arrow-icon { color: #1a2a4a; }
 .section { padding: clamp(64px, 8vw, 118px) clamp(18px, 5vw, 80px); }
 .section-head { max-width: 900px; margin-bottom: 34px; }
 .section-split { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(28px, 6vw, 90px); align-items: start; }
@@ -249,15 +302,24 @@ h3 {
   font-family: var(--font-primary);
 }
 .service-icon {
-  width: 54px;
-  height: 54px;
+  width: 72px;
+  height: 72px;
   display: grid;
   place-items: center;
   margin-bottom: 24px;
-  color: var(--white);
-  background: var(--blue);
+  color: var(--blue);
+  background: rgba(10,31,53,.06);
   font-weight: 900;
   font-family: var(--font-primary);
+}
+.service-icon svg {
+  width: 36px;
+  height: 36px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .service-card ul { padding-left: 20px; color: var(--muted); }
 .service-card .btn { margin-top: 10px; }
@@ -349,6 +411,8 @@ address { font-style: normal; color: var(--blue); font-weight: 800; }
   .header-link { display: none; }
   .service-grid, .project-grid, .document-list { grid-template-columns: repeat(2, 1fr); }
   .quick-nav { grid-template-columns: repeat(3, 1fr); }
+  .brand-text { display: none; }
+  .brand-divider { display: none; }
 }
 @media (max-width: 820px) {
   .site-header { grid-template-columns: auto auto; }
@@ -378,61 +442,4 @@ address { font-style: normal; color: var(--blue); font-weight: 800; }
   .hero { min-height: 92vh; }
   .site-footer { flex-direction: column; }
   .footer-links { flex-direction: column; gap: 8px; }
-}
-.mini-logo {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-}
-/* Стили для ссылок */
-.quick-nav a {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  color: #1a1a1a;
-  padding: 8px 0;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-
-.quick-nav a:hover {
-  color: #ff7f2a;   /* текст становится оранжевым при наведении */
-}
-
-/* Квадрат со стрелкой */
-.arrow-square {
-  display: inline-flex;
-  position: relative;
-  width: 50px;
-  height: 50px;
-  margin-right: 14px;
-  border: 2px solid #cccccc;
-  border-radius: 8px;
-  background: transparent;
-  transition: border-color 0.3s ease;
-  flex-shrink: 0;
-}
-
-/* При наведении рамка становится оранжевой */
-.quick-nav a:hover .arrow-square {
-  border-color: #ff7f2a;
-  background: transparent;
-}
-
-/* Сама стрелка – крупная, в левом нижнем углу, повёрнута на 45° */
-.arrow-icon {
-  position: absolute;
-  left: 4px;
-  bottom: 4px;
-  font-size: 28px;
-  line-height: 1;
-  transform: rotate(-45deg) scale(2.5);
-  color: #333333;
-  transition: color 0.3s ease;
-}
-
-/* При наведении стрелка становится тёмно-синей */
-.quick-nav a:hover .arrow-icon {
-  color: #1a2a4a;
 }
