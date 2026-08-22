@@ -44,10 +44,39 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="main-nav" id="main-nav" data-nav>
-      <a href="#services">УСЛУГИ</a>
-      <a href="#projects">ОБЪЕКТЫ</a>
-      <a href="#documents">ДОКУМЕНТЫ</a>
-      <a href="#contacts">КОНТАКТЫ</a>
+      <div class="nav-dropdown">
+        <a href="#services">УСЛУГИ</a>
+        <div class="nav-dropdown-menu">
+          <a href="#service-pipelines">Монтаж трубопроводов</a>
+          <a href="#service-tech">Технологические трубопроводы</a>
+          <a href="#service-networks">Инженерные сети</a>
+          <a href="#service-project">Проектирование</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="#projects">ОБЪЕКТЫ</a>
+        <div class="nav-dropdown-menu">
+          <a href="#projects">Промышленные объекты</a>
+          <a href="#projects">Коммерческие объекты</a>
+          <a href="#projects">Инфраструктура</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="#documents">ДОКУМЕНТЫ</a>
+        <div class="nav-dropdown-menu">
+          <a href="#documents">Реквизиты</a>
+          <a href="#documents">Карточка организации</a>
+          <a href="#documents">СРО и сертификаты</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="#contacts">КОНТАКТЫ</a>
+        <div class="nav-dropdown-menu">
+          <a href="tel:+79215317136">Позвонить</a>
+          <a href="mailto:info@areal-prom.ru">Написать письмо</a>
+          <a href="https://t.me/areal_prom" target="_blank" rel="noreferrer">Telegram</a>
+        </div>
+      </div>
     </nav>
     <div class="header-actions">
       <a class="header-phone" href="tel:+79215317136"><span class="contact-icon" aria-hidden="true">☎</span>+7 921 531-71-36</a>
@@ -58,11 +87,11 @@
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <img src="assets/img/fon_main.png" alt="" class="hero-bg" aria-hidden="true">
+      <img src="assets/img/fon_main5.png" alt="" class="hero-bg" aria-hidden="true">
       <div class="hero-inner">
         <div class="hero-content">
           <p class="hero-eyebrow">Инженерный подрядчик</p>
-          <h1 id="hero-title">Инженерные сети<br>и трубопроводы<br>под ключ</h1>
+          <h1 id="hero-title">Монтаж и проектирование трубопроводов и инженерных сетей</h1>
           <span class="hero-rule" aria-hidden="true"></span>
           <p class="hero-copy">Проектируем и монтируем инженерные системы для промышленных, коммерческих и инфраструктурных объектов.</p>
           <div class="hero-actions">
@@ -70,13 +99,10 @@
             <a class="btn btn-secondary" href="#projects">Смотреть объекты</a>
           </div>
           <div class="hero-facts" aria-label="Ключевые факты">
-            <div><strong>СЗФО + Россия</strong><span>география работ</span></div>
-            <div><strong>Проект - монтаж</strong><span>единая ответственность</span></div>
-            <div><strong>Документы</strong><span>для сдачи объекта</span></div>
+            <div><svg class="hero-fact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></svg><strong>СЗФО + Россия</strong><span>география работ</span></div>
+            <div><svg class="hero-fact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16M6 18V8l6-4 6 4v10M9 18v-5h6v5"/></svg><strong>Проект - монтаж</strong><span>единая ответственность</span></div>
+            <div><svg class="hero-fact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h8l3 3v15H7z"/><path d="M15 3v4h4M10 12h5M10 16h5"/></svg><strong>Документы</strong><span>для сдачи объекта</span></div>
           </div>
-        </div>
-        <div class="hero-visual" aria-hidden="true">
-          <img src="assets/img/fon_pipe.png" alt="">
         </div>
         <div class="hero-benefits" aria-label="Преимущества работы с компанией">
           <article>
@@ -98,24 +124,12 @@
       </div>
     </section>
     <section class="quick-nav" aria-label="Основные направления">
-      <a href="#service-pipelines">
-        <span class="arrow-square"><span class="arrow-icon">→</span></span> Монтаж трубопроводов
-      </a>
-      <a href="#service-networks">
-        <span class="arrow-square"><span class="arrow-icon">→</span></span> Внутренние инженерные сети
-      </a>
-      <a href="#service-tech">
-        <span class="arrow-square"><span class="arrow-icon">→</span></span> Технологические трубопроводы
-      </a>
-      <a href="#service-project">
-        <span class="arrow-square"><span class="arrow-icon">→</span></span> Проектирование
-      </a>
-      <a href="#about">
-        <span class="arrow-square"><span class="arrow-icon">→</span></span> О компании
-      </a>
-      <a href="#contacts">
-        <span class="arrow-square"><span class="arrow-icon">→</span></span> Контакты
-      </a>
+      <a href="#service-pipelines"><span>01</span>Монтаж трубопроводов<i aria-hidden="true">→</i></a>
+      <a href="#service-networks"><span>02</span>Внутренние инженерные сети<i aria-hidden="true">→</i></a>
+      <a href="#service-tech"><span>03</span>Технологические трубопроводы<i aria-hidden="true">→</i></a>
+      <a href="#service-project"><span>04</span>Проектирование<i aria-hidden="true">→</i></a>
+      <a href="#about"><span>05</span>О компании<i aria-hidden="true">→</i></a>
+      <a href="#contacts"><span>06</span>Контакты<i aria-hidden="true">→</i></a>
     </section>
 <!--
     <section class="quick-nav" aria-label="Основные направления">
@@ -136,6 +150,9 @@
         <p>ООО «АРЕАЛ-ПРОМ» выполняет проектирование, строительство внутренних инженерных сетей и монтаж технологических трубопроводов для промышленных предприятий, коммерческих и общественных объектов. Основной регион работы — Северо-Западный федеральный округ, при этом мы готовы реализовывать проекты по всей России.</p>
         <p>Фокус компании — аккуратное планирование, соблюдение сроков, исполнительная документация и понятная коммуникация с заказчиком на каждом этапе работ.</p>
       </div>
+      <aside class="about-logo-stage" aria-hidden="true">
+        <img src="assets/img/logo_ho_web.png" alt="">
+      </aside>
     </section>
 
     <section class="section trust-band" aria-label="Преимущества">
@@ -212,10 +229,20 @@
   </main>
 
   <footer class="site-footer">
-    <div>ООО «АРЕАЛ-ПРОМ»</div>
-    <div class="footer-links">
-      <a href="privacy.html">Политика конфиденциальности</a>
-      <a href="sitemap.xml">Карта сайта</a>
+    <div class="footer-main">
+      <a class="footer-brand" href="#top" aria-label="АРЕАЛ-ПРОМ"><img src="assets/img/logo_ho_web.png" alt="АРЕАЛ-ПРОМ"></a>
+      <p>Монтаж и проектирование трубопроводов и инженерных сетей для промышленных, коммерческих и инфраструктурных объектов.</p>
+      <div class="footer-socials" aria-label="Каналы связи">
+        <a href="https://t.me/areal_prom" target="_blank" rel="noreferrer" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 4-3 16-5.5-4-3.2 3.1.5-4.5L17 8 7 13l-4-1.5L21 4Z"/></svg></a>
+        <a href="mailto:info@areal-prom.ru" aria-label="Электронная почта"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg></a>
+        <a href="tel:+79215317136" aria-label="Позвонить"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3 4.5 5.5c-1 1 1.5 7 5.5 11s10 6.5 11 5.5L21 19l-4-2-2 2c-2-1-5-4-6-6l2-2-2-4Z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-nav-group"><h2>Навигация</h2><a href="#services">Услуги</a><a href="#projects">Наши объекты</a><a href="#about">О компании</a><a href="#contacts">Контакты</a></div>
+    <div class="footer-nav-group"><h2>Для заказчиков</h2><a href="#documents">Документы</a><a href="#request">Заявка на расчет</a><a href="privacy.html">Политика конфиденциальности</a><a href="sitemap.xml">Карта сайта</a></div>
+    <div class="footer-contacts"><h2>Связаться</h2><a href="tel:+79215317136">+7 921 531-71-36</a><a href="mailto:info@areal-prom.ru">info@areal-prom.ru</a><address>г. Череповец, ул. Олимпийская, д. 77, офис 216/1</address></div>
+    <div class="footer-bottom">
+      <span>© 2026 ООО «АРЕАЛ-ПРОМ»</span><span>Инженерный подрядчик</span>
     </div>
   </footer>
 

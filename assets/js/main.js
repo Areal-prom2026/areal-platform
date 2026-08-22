@@ -9,6 +9,26 @@ const nav = document.querySelector('[data-nav]');
 const header = document.querySelector('[data-header]');
 const headerActions = document.querySelector('.header-actions');
 
+const STANDARD_FOOTER = `
+  <div class="footer-main">
+    <a class="footer-brand" href="index.html#top" aria-label="АРЕАЛ-ПРОМ"><img src="assets/img/logo_ho_web.png" alt="АРЕАЛ-ПРОМ"></a>
+    <p>Монтаж и проектирование трубопроводов и инженерных сетей для промышленных, коммерческих и инфраструктурных объектов.</p>
+    <div class="footer-socials" aria-label="Каналы связи">
+      <a href="https://t.me/areal_prom" target="_blank" rel="noreferrer" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 4-3 16-5.5-4-3.2 3.1.5-4.5L17 8 7 13l-4-1.5L21 4Z"/></svg></a>
+      <a href="mailto:info@areal-prom.ru" aria-label="Электронная почта"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg></a>
+      <a href="tel:+79215317136" aria-label="Позвонить"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3 4.5 5.5c-1 1 1.5 7 5.5 11s10 6.5 11 5.5L21 19l-4-2-2 2c-2-1-5-4-6-6l2-2-2-4Z"/></svg></a>
+    </div>
+  </div>
+  <div class="footer-nav-group"><h2>Навигация</h2><a href="index.html#services">Услуги</a><a href="index.html#projects">Наши объекты</a><a href="index.html#about">О компании</a><a href="index.html#contacts">Контакты</a></div>
+  <div class="footer-nav-group"><h2>Для заказчиков</h2><a href="index.html#documents">Документы</a><a href="index.html#request">Заявка на расчет</a><a href="privacy.html">Политика конфиденциальности</a><a href="sitemap.xml">Карта сайта</a></div>
+  <div class="footer-contacts"><h2>Связаться</h2><a href="tel:+79215317136">+7 921 531-71-36</a><a href="mailto:info@areal-prom.ru">info@areal-prom.ru</a><address>г. Череповец, ул. Олимпийская, д. 77, офис 216/1</address></div>
+  <div class="footer-bottom"><span>© 2026 ООО «АРЕАЛ-ПРОМ»</span><span>Инженерный подрядчик</span></div>`;
+
+function initFooter() {
+  const footer = document.querySelector('.site-footer');
+  if (footer && !footer.querySelector('.footer-main')) footer.innerHTML = STANDARD_FOOTER;
+}
+
 const SERVICE_ICONS = {
   pipeline: `
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -269,5 +289,6 @@ if (form) {
   });
 }
 
+initFooter();
 initContent();
 initMap();
