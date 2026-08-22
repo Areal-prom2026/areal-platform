@@ -134,10 +134,28 @@ function renderDocuments(items) {
   if (!target) return;
   target.innerHTML = items.map(item => `
     <a class="doc-card" href="${item.href}" target="_blank" rel="noreferrer">
-      <strong>${item.title}</strong>
-      <span>${item.type}</span>
+      <span class="doc-card-copy"><strong>${item.title}</strong><small>${item.description || 'Откройте документ в формате PDF'}</small></span>
+      <span class="doc-card-type">${item.type}</span>
     </a>
   `).join('');
+}
+
+function initQuickNav() {
+  const quickNav = document.querySelector('[data-quick-nav]');
+  if (!quickNav) return;
+
+  if (!('IntersectionObserver' in window)) {
+    quickNav.classList.add('is-visible');
+    return;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    if (entries.some(entry => entry.isIntersecting)) {
+      quickNav.classList.add('is-visible');
+      observer.disconnect();
+    }
+  }, { threshold: .35 });
+  observer.observe(quickNav);
 }
 
 function renderServiceDetail(items) {
@@ -298,3 +316,4 @@ if (form) {
 initFooter();
 initContent();
 initMap();
+initQuickNav();

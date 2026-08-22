@@ -1,5 +1,5 @@
 [
-  { "title": "Реквизиты компании", "type": "PDF", "href": "docs/requisites.pdf" },
-  { "title": "Карточка организации", "type": "PDF", "href": "docs/company-card.pdf" },
-  { "title": "СРО и сертификаты", "type": "PDF", "href": "docs/certificates.pdf" }
+  { "title": "Реквизиты компании", "description": "Данные для договора, счета и проверки контрагента", "type": "PDF", "href": "docs/requisites.pdf" },
+  { "title": "Карточка организации", "description": "Краткая информация о компании для закупок и согласований", "type": "PDF", "href": "docs/company-card.pdf" },
+  { "title": "СРО и сертификаты", "description": "Подтверждение компетенций и допусков к работам", "type": "PDF", "href": "docs/certificates.pdf" }
 ]
