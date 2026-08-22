@@ -147,19 +147,17 @@ function renderServiceDetail(items) {
   const item = items.find(service => service.id === slug) || items[0];
   document.title = `${item.title} - АРЕАЛ-ПРОМ`;
   target.innerHTML = `
-    <section class="detail-hero">
+    <section class="detail-hero detail-service-hero">
       <div>
         <p class="hero-eyebrow">Услуга</p>
         <h1>${item.title}</h1>
         <p>${item.description}</p>
         <a class="btn" href="index.html#request">Получить расчет стоимости</a>
       </div>
-      <div class="detail-visual" style="background-image: url('${item.image || 'assets/img/fon_main_present.png'}')"></div>
     </section>
     <section class="detail-layout">
-      <aside class="detail-aside">
-        <p class="eyebrow">Кратко</p>
-        <h2>Что получает заказчик</h2>
+      <aside class="detail-aside detail-render">
+        <img src="${item.iconImage || 'assets/img/service-pipelines-render.png'}" alt="3D-рендер: ${item.title}">
       </aside>
       <div class="detail-list">
         <section class="service-theses">
