@@ -98,7 +98,7 @@ function renderServices(items) {
   if (!target) return;
   target.innerHTML = items.map(item => `
     <a class="service-card" id="${item.id}" href="service.html?id=${encodeURIComponent(item.id)}">
-      <div class="service-icon">${SERVICE_ICONS[item.icon] || SERVICE_ICONS.default}</div>
+      <div class="service-icon">${item.iconImage ? `<img src="${item.iconImage}" alt="" aria-hidden="true">` : (SERVICE_ICONS[item.icon] || SERVICE_ICONS.default)}</div>
       <h3>${item.title}</h3>
       <p>${item.description}</p>
       <ul>${item.works.slice(0, 3).map(work => `<li>${work}</li>`).join('')}</ul>
@@ -232,20 +232,34 @@ function renderProjectDetail(items) {
 }
 
 function initMap() {
-  const button = document.querySelector('[data-map-load]');
   const placeholder = document.querySelector('[data-map-placeholder]');
-  if (!button || !placeholder) return;
+  if (!placeholder) return;
 
-  button.addEventListener('click', () => {
+  const mountMap = () => {
+    if (placeholder.dataset.loaded) return;
+    placeholder.dataset.loaded = 'true';
     const map = document.createElement('div');
     map.className = 'map-frame';
     map.setAttribute('aria-label', 'Карта: офис АРЕАЛ-ПРОМ');
     const script = document.createElement('script');
     script.async = true;
-    script.src = 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A31c6beb00ab3d7ae9bb9c0b39de1e43b6eec7d78ed29c6a65e66e554174430de&width=100%25&height=390&lang=ru_RU&scroll=true';
+    script.src = 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A31c6beb00ab3d7ae9bb9c0b39de1e43b6eec7d78ed29c6a65e66e554174430de&width=100%25&height=640&lang=ru_RU&scroll=true';
     map.appendChild(script);
     placeholder.replaceWith(map);
-  }, { once: true });
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    mountMap();
+    return;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    if (entries.some(entry => entry.isIntersecting)) {
+      mountMap();
+      observer.disconnect();
+    }
+  }, { rootMargin: '240px 0px' });
+  observer.observe(placeholder);
 }
 
 async function initContent() {
