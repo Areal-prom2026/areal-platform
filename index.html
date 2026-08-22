@@ -10,7 +10,7 @@
   <meta property="og:description" content="Монтаж трубопроводов и инженерных сетей для промышленных и коммерческих объектов.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/img/og-cover.svg">
-  <link rel="canonical" href="https://example.com/">
+  <link rel="canonical" href="https://areal-prom.ru/">
   
   <!-- logo_mini_black -->
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -62,37 +62,37 @@
       <div class="hero-inner">
         <div class="hero-content">
           <p class="hero-eyebrow">Инженерный подрядчик</p>
-          <h1 id="hero-title">Монтаж и проектирование трубопроводов и инженерных сетей</h1>
+          <h1 id="hero-title">Инженерные сети<br>и трубопроводы<br>под ключ</h1>
           <span class="hero-rule" aria-hidden="true"></span>
-          <p class="hero-copy">Выполняем работы для промышленных, коммерческих и инфраструктурных объектов в СЗФО и по России.</p>
+          <p class="hero-copy">Проектируем и монтируем инженерные системы для промышленных, коммерческих и инфраструктурных объектов.</p>
           <div class="hero-actions">
-            <a class="btn" href="#request">Получить коммерческое предложение</a>
-            <a class="btn btn-secondary" href="#services">Смотреть услуги</a>
+            <a class="btn" href="#request">Получить КП</a>
+            <a class="btn btn-secondary" href="#projects">Смотреть объекты</a>
+          </div>
+          <div class="hero-facts" aria-label="Ключевые факты">
+            <div><strong>СЗФО + Россия</strong><span>география работ</span></div>
+            <div><strong>Проект - монтаж</strong><span>единая ответственность</span></div>
+            <div><strong>Документы</strong><span>для сдачи объекта</span></div>
           </div>
         </div>
         <div class="hero-visual" aria-hidden="true">
           <img src="assets/img/fon_pipe.png" alt="">
         </div>
-        <div class="hero-benefits" aria-label="Преимущества">
+        <div class="hero-benefits" aria-label="Преимущества работы с компанией">
           <article>
-            <span class="benefit-icon">♙</span>
-            <h3>Комплексный подход</h3>
-            <p>подход от проекта до запуска</p>
+            <svg class="benefit-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16M6 19V8l6-4 6 4v11M9 19v-5h6v5M9 10h.01M15 10h.01"/></svg>
+            <h3>Полный цикл</h3>
+            <p>от проектного решения до сдачи работ</p>
           </article>
           <article>
-            <span class="benefit-icon">✓</span>
-            <h3>Качество исполнения</h3>
-            <p>на всех этапах работ</p>
+            <svg class="benefit-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v5c0 4.5 3.4 7.6 8 9 4.6-1.4 8-4.5 8-9V7l-8-4Z"/><path d="m8.5 12 2.3 2.3 4.8-5"/></svg>
+            <h3>Контроль качества</h3>
+            <p>на каждом этапе производства работ</p>
           </article>
           <article>
-            <span class="benefit-icon">▦</span>
-            <h3>Соблюдение сроков</h3>
-            <p>заранее планируем производство работ, координируем поставки материалов и ресурсы</p>
-          </article>
-          <article>
-            <span class="benefit-icon">◇</span>
-            <h3>Ответственное партнерство</h3>
-            <p>открыто взаимодействуем с заказчиком, оперативно решаем возникающие вопросы</p>
+            <svg class="benefit-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>
+            <h3>Управляемые сроки</h3>
+            <p>планируем этапы, ресурсы и поставки</p>
           </article>
         </div>
       </div>
@@ -160,12 +160,7 @@
         <h2>Проекты и выполненные работы</h2>
         <p>Реализованные и типовые объекты с описанием задач, выполненных работ и результата.</p>
       </div>
-      <div class="projects-showcase">
-        <button class="slider-btn" type="button" aria-label="Предыдущий объект" data-project-prev>←</button>
-        <div class="project-tabs" id="project-tabs" role="tablist"></div>
-        <button class="slider-btn" type="button" aria-label="Следующий объект" data-project-next>→</button>
-      </div>
-      <div class="project-feature" id="projects-list"></div>
+      <div class="projects-grid" id="projects-list"></div>
     </section>
 
     <section class="section" id="documents">
@@ -185,9 +180,10 @@
       <form class="request-form" data-request-form>
         <label>Имя<input type="text" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
         <label>Телефон<input type="tel" name="phone" autocomplete="tel" required placeholder="+7 ___ ___-__-__"></label>
+        <label>Компания<input type="text" name="company_name" autocomplete="organization" placeholder="Название компании"></label>
         <label>Комментарий<textarea name="message" rows="4" placeholder="Объект, вид работ, сроки"></textarea></label>
         <input type="text" name="company" class="honeypot" tabindex="-1" autocomplete="off">
-        <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a>.</p>
+        <p class="form-note">Ответим в течение одного рабочего дня. Нажимая кнопку, вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a>.</p>
         <button class="btn" type="submit">Получить коммерческое предложение</button>
         <p class="form-status" data-form-status role="status"></p>
       </form>
@@ -201,12 +197,16 @@
           <li><span>Телефон</span><a href="tel:+79215317136">+7 921 531-71-36</a></li>
           <li><span>Почта</span><a href="mailto:info@areal-prom.ru">info@areal-prom.ru</a></li>
           <li><span>Telegram</span><a href="https://t.me/areal_prom" target="_blank" rel="noreferrer">@areal_prom</a></li>
+          <li><span>Режим работы</span><strong>Пн-Пт, 09:00-18:00</strong></li>
           <li><span>Офис</span><address>162623, Вологодская область, г. о. город Череповец, г. Череповец, ул. Олимпийская, д. 77, офис 216/1</address></li>
         </ul>
       </div>
-      <div class="map-card" aria-label="Карта">
+      <div class="map-card" aria-label="Карта с адресом офиса">
         <div class="map-grid"></div>
-        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A31c6beb00ab3d7ae9bb9c0b39de1e43b6eec7d78ed29c6a65e66e554174430de&amp;width=1280&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script>
+        <div class="map-placeholder" data-map-placeholder>
+          <p>Офис АРЕАЛ-ПРОМ в Череповце</p>
+          <button class="btn btn-secondary" type="button" data-map-load>Показать карту</button>
+        </div>
       </div>
     </section>
   </main>

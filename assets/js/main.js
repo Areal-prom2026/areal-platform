@@ -82,55 +82,31 @@ function renderServices(items) {
       <h3>${item.title}</h3>
       <p>${item.description}</p>
       <ul>${item.works.slice(0, 3).map(work => `<li>${work}</li>`).join('')}</ul>
-      <span class="btn btn-secondary">Подробнее</span>
+      <span class="service-link">Подробнее <span aria-hidden="true">→</span></span>
     </a>
   `).join('');
 }
 
 function renderProjects(items) {
-  const tabs = document.querySelector('#project-tabs');
   const target = document.querySelector('#projects-list');
-  const prev = document.querySelector('[data-project-prev]');
-  const next = document.querySelector('[data-project-next]');
-  if (!tabs || !target) return;
-
-  let active = 0;
-  const visibleItems = items.slice(0, 3);
-
-  function paint() {
-    const item = visibleItems[active];
-    tabs.innerHTML = visibleItems.map((project, index) => `
-      <button class="project-tab ${index === active ? 'is-active' : ''}" type="button" role="tab" aria-selected="${index === active}" data-project-tab="${index}">
-        ${project.title}
-      </button>
-    `).join('');
-    target.innerHTML = `
-      <div class="project-image" style="background-image: linear-gradient(135deg, rgba(10,31,53,.16), rgba(243,107,33,.22)), url('${item.image || 'assets/img/fon_main_present.png'}')"></div>
-      <article class="project-card">
-        <p class="project-meta">${item.location} • ${item.type}</p>
+  if (!target) return;
+  target.innerHTML = items.map(item => `
+    <a class="project-case" href="project.html?id=${encodeURIComponent(item.id)}">
+      <div class="project-case-image" style="background-image: linear-gradient(180deg, rgba(7,21,37,0) 38%, rgba(7,21,37,.82) 100%), url('${item.image}')">
+        <span>${item.year || 'Реализованный проект'}</span>
+      </div>
+      <div class="project-case-content">
+        <p class="project-meta">${item.location} <span aria-hidden="true">/</span> ${item.type}</p>
         <h3>${item.title}</h3>
         <p>${item.description}</p>
-        <p><strong>Выполненные работы:</strong> ${item.works}</p>
-        <a class="btn project-link" href="project.html?id=${encodeURIComponent(item.id)}">Открыть объект</a>
-      </article>
-    `;
-    tabs.querySelectorAll('[data-project-tab]').forEach(button => {
-      button.addEventListener('click', () => {
-        active = Number(button.dataset.projectTab);
-        paint();
-      });
-    });
-  }
-
-  prev?.addEventListener('click', () => {
-    active = (active - 1 + visibleItems.length) % visibleItems.length;
-    paint();
-  });
-  next?.addEventListener('click', () => {
-    active = (active + 1) % visibleItems.length;
-    paint();
-  });
-  paint();
+        <dl>
+          <div><dt>Задача</dt><dd>${item.tasks}</dd></div>
+          <div><dt>Результат</dt><dd>${item.result}</dd></div>
+        </dl>
+        <span class="service-link">Смотреть кейс <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+  `).join('');
 }
 
 function renderDocuments(items) {
@@ -162,17 +138,37 @@ function renderServiceDetail(items) {
     </section>
     <section class="detail-layout">
       <aside class="detail-aside">
-        <p class="eyebrow">Состав работ</p>
-        <h2>Что входит</h2>
+        <p class="eyebrow">Кратко</p>
+        <h2>Что получает заказчик</h2>
       </aside>
       <div class="detail-list">
-        ${item.works.map((work, index) => `
+        <section class="service-theses">
+          <ul>${item.works.map(work => `<li>${work}</li>`).join('')}</ul>
+        </section>
+        <section class="service-explainer">
+          <h3>Подробно об услуге</h3>
+          ${(item.longDescription || [item.description]).map(text => `<p>${text}</p>`).join('')}
+        </section>
+        <section class="service-scope">
+          <h3>Состав работ</h3>
+          ${item.works.map((work, index) => `
           <section>
             <h3>${String(index + 1).padStart(2, '0')}. ${work}</h3>
             <p>${item.details?.[index] || 'Работы выполняются по проекту, с учетом требований объекта, нормативной документации и дальнейшей эксплуатации.'}</p>
           </section>
-        `).join('')}
+          `).join('')}
+        </section>
+        <section class="service-faq">
+          <h3>Вопросы по услуге</h3>
+          <details><summary>Для каких объектов подходит услуга?</summary><p>${item.audience || 'Для промышленных, коммерческих и инфраструктурных объектов, где требуется надежная инженерная система и понятная организация работ.'}</p></details>
+          <details><summary>Как формируется состав работ?</summary><p>После изучения исходных данных, проекта, ограничений площадки и сроков заказчика.</p></details>
+        </section>
       </div>
+    </section>
+    <section class="detail-cta">
+      <p class="eyebrow">Обсудим задачу</p>
+      <h2>Подготовим состав работ и расчет</h2>
+      <a class="btn" href="index.html#request">Получить расчет стоимости</a>
     </section>
   `;
 }
@@ -206,12 +202,30 @@ function renderProjectDetail(items) {
       <div class="detail-list">
         <section><h3>Местоположение</h3><p>${item.location}</p></section>
         <section><h3>Тип объекта</h3><p>${item.type}</p></section>
+        <section><h3>Срок / год</h3><p>${item.year || 'По согласованному графику'}</p></section>
         <section><h3>Выполненные работы</h3><p>${item.works}</p></section>
         <section><h3>Основные характеристики и задачи</h3><p>${item.tasks}</p></section>
         <section><h3>Результат</h3><p>${item.result}</p></section>
       </div>
     </section>
   `;
+}
+
+function initMap() {
+  const button = document.querySelector('[data-map-load]');
+  const placeholder = document.querySelector('[data-map-placeholder]');
+  if (!button || !placeholder) return;
+
+  button.addEventListener('click', () => {
+    const map = document.createElement('div');
+    map.className = 'map-frame';
+    map.setAttribute('aria-label', 'Карта: офис АРЕАЛ-ПРОМ');
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A31c6beb00ab3d7ae9bb9c0b39de1e43b6eec7d78ed29c6a65e66e554174430de&width=100%25&height=390&lang=ru_RU&scroll=true';
+    map.appendChild(script);
+    placeholder.replaceWith(map);
+  }, { once: true });
 }
 
 async function initContent() {
@@ -247,11 +261,13 @@ if (form) {
     const body = encodeURIComponent([
       `Имя: ${formData.get('name') || ''}`,
       `Телефон: ${phone}`,
+      `Компания: ${formData.get('company_name') || ''}`,
       `Комментарий: ${formData.get('message') || ''}`
     ].join('\n'));
-    status.textContent = 'Заявка подготовлена. Откроется почтовая программа для отправки.';
+    status.textContent = 'Заявка подготовлена. Откроется почтовая программа для отправки. Ответим в течение рабочего дня.';
     window.location.href = `mailto:info@areal-prom.ru?subject=${subject}&body=${body}`;
   });
 }
 
 initContent();
+initMap();
