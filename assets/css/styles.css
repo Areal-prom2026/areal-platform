@@ -105,15 +105,12 @@ p, h1, h2, h3 { margin-top: 0; }
   flex: 0 0 auto;
 }
 .brand-meta {
-  display: grid;
-  gap: 3px;
-  max-width: 236px;
+  max-width: 250px;
   color: rgba(255,255,255,.92);
   text-transform: uppercase;
   line-height: 1.1;
 }
-.brand-region { color: rgba(255,255,255,.92); font-size: 10px; font-weight: 900; }
-.brand-service { color: rgba(255,255,255,.68); font-size: 9px; font-weight: 700; }
+.brand-service { color: rgba(255,255,255,.76); font-size: 11px; font-weight: 800; }
 .main-nav {
   display: flex;
   justify-content: center;
@@ -435,7 +432,7 @@ h3 {
   align-items: start;
 }
 .text-block { font-size: 21px; color: #46515d; }
-.about-logo-stage { position: sticky; top: 126px; align-self: start; justify-self: center; padding-top: 18px; opacity: .75; }
+.about-logo-stage { position: sticky; top: 126px; align-self: start; justify-self: center; padding-top: 18px; opacity: .75; transform: translateX(120px); }
 .about-logo-stage::after { display: none; }
 .about-logo-stage img { width: min(410px, 100%); mix-blend-mode: multiply; filter: brightness(1.1); }
 .trust-band {
@@ -773,7 +770,7 @@ address { font-style: normal; color: var(--blue); font-weight: 800; }
   .gallery-grid,
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .section-split { grid-template-columns: minmax(190px, .55fr) minmax(0, 1.45fr); }
-  .about-logo-stage { grid-column: 1; grid-row: 1 / span 2; position: sticky; justify-self: start; margin: 0; }
+  .about-logo-stage { grid-column: 1; grid-row: 1 / span 2; position: sticky; justify-self: start; margin: 0; transform: translateX(36px); }
   .about-title, .section-split .text-block { grid-column: 2; }
   .site-footer { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

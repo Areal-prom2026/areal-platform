@@ -198,18 +198,12 @@ function renderProjectDetail(items) {
   const item = items.find(project => project.id === slug) || items[0];
   document.title = `${item.title} - АРЕАЛ-ПРОМ`;
   target.innerHTML = `
-    <section class="detail-hero">
+    <section class="detail-hero detail-service-hero">
       <div>
         <p class="hero-eyebrow">Объект</p>
         <h1>${item.title}</h1>
         <p>${item.description}</p>
         <a class="btn" href="index.html#request">Обсудить похожий проект</a>
-      </div>
-      <div class="detail-visual" style="background-image: url('${item.image || 'assets/img/fon_main_present.png'}')"></div>
-    </section>
-    <section class="section">
-      <div class="gallery-grid">
-        ${(item.gallery || [item.image, 'assets/img/fon_main_present.png', 'assets/img/fon_pipe.png']).map(image => `<div style="background-image: url('${image}')"></div>`).join('')}
       </div>
     </section>
     <section class="detail-layout">
