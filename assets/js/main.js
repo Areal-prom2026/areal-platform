@@ -78,7 +78,7 @@ if (menuToggle && nav) {
 
 function updateHeaderState() {
   if (!header) return;
-  header.classList.toggle('is-scrolled', header.hasAttribute('data-solid-header') || window.scrollY > 12);
+  header.classList.toggle('is-scrolled', window.scrollY > 12);
 }
 updateHeaderState();
 window.addEventListener('scroll', updateHeaderState, { passive: true });
