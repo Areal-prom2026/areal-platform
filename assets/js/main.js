@@ -186,7 +186,7 @@ function renderServiceDetail(items) {
     </section>
     <section class="detail-layout service-detail-layout">
       <aside class="detail-aside detail-service-photo">
-        <img src="${item.backgroundImage}" alt="${item.title}">
+        <img src="${item.detailImage || item.backgroundImage}" alt="${item.title}">
       </aside>
       <div class="detail-list service-intro">
         <section class="service-theses">
