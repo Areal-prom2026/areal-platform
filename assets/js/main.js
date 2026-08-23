@@ -239,9 +239,9 @@ function renderProjectDetail(items) {
         <section class="project-gallery" data-project-gallery data-images="${gallery.join('|')}">
           <div class="project-gallery-frame">
             <img src="${gallery[0]}" alt="Фотография объекта: ${item.title}" data-project-gallery-image>
-            <button class="project-gallery-arrow project-gallery-arrow-prev" type="button" data-project-gallery-prev aria-label="Предыдущая фотография">←</button>
-            <button class="project-gallery-arrow project-gallery-arrow-next" type="button" data-project-gallery-next aria-label="Следующая фотография">→</button>
           </div>
+          <button class="project-gallery-arrow project-gallery-arrow-prev" type="button" data-project-gallery-prev aria-label="Предыдущая фотография">←</button>
+          <button class="project-gallery-arrow project-gallery-arrow-next" type="button" data-project-gallery-next aria-label="Следующая фотография">→</button>
         </section>
       </aside>
       <div class="detail-list">
