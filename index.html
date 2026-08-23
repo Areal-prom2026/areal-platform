@@ -172,7 +172,16 @@
         <h2>Проекты и выполненные работы</h2>
         <p>Реализованные и типовые объекты с описанием выполненных инженерных работ.</p>
       </div>
-      <div class="projects-grid" id="projects-list"></div>
+      <div class="projects-carousel" data-projects-carousel>
+        <div class="projects-viewport">
+          <div class="projects-grid" id="projects-list"></div>
+        </div>
+        <div class="projects-controls" aria-label="Навигация по объектам">
+          <button class="projects-arrow" type="button" data-projects-prev aria-label="Предыдущие объекты">←</button>
+          <span data-projects-counter aria-live="polite"></span>
+          <button class="projects-arrow" type="button" data-projects-next aria-label="Следующие объекты">→</button>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="documents">

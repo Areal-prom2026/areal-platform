@@ -124,6 +124,39 @@ function renderProjects(items) {
   `).join('');
 }
 
+function initProjectsCarousel() {
+  const carousel = document.querySelector('[data-projects-carousel]');
+  const track = document.querySelector('#projects-list');
+  if (!carousel || !track) return;
+
+  const previous = carousel.querySelector('[data-projects-prev]');
+  const next = carousel.querySelector('[data-projects-next]');
+  const counter = carousel.querySelector('[data-projects-counter]');
+  let page = 0;
+
+  const visibleCards = () => window.matchMedia('(max-width: 820px)').matches ? 1 : window.matchMedia('(max-width: 1120px)').matches ? 2 : 3;
+  const pageCount = () => Math.max(1, Math.ceil(track.children.length / visibleCards()));
+
+  const update = () => {
+    const cards = track.children;
+    const visible = visibleCards();
+    const total = pageCount();
+    page = Math.min(page, total - 1);
+    const firstCard = cards[0];
+    const gap = Number.parseFloat(getComputedStyle(track).gap) || 0;
+    const offset = firstCard ? page * visible * (firstCard.getBoundingClientRect().width + gap) : 0;
+    track.style.transform = `translateX(-${offset}px)`;
+    previous.disabled = page === 0;
+    next.disabled = page === total - 1;
+    counter.textContent = `${String(page + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+  };
+
+  previous.addEventListener('click', () => { page -= 1; update(); });
+  next.addEventListener('click', () => { page += 1; update(); });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+}
+
 function renderDocuments(items) {
   const target = document.querySelector('#documents-list');
   if (!target) return;
@@ -258,6 +291,7 @@ async function initContent() {
     ]);
     renderServices(services);
     renderProjects(projects);
+    initProjectsCarousel();
     renderDocuments(documents);
     renderServiceDetail(services);
     renderProjectDetail(projects);
