@@ -100,7 +100,7 @@
       <div class="hero-inner">
         <div class="hero-content">
           <p class="hero-eyebrow">Инженерный подрядчик</p>
-          <h1 id="hero-title">Монтаж и проектирование трубопроводов и инженерных сетей</h1>
+          <h1 id="hero-title">Монтаж&nbsp;и&nbsp;проектирование металлоконструкций&nbsp;и&nbsp;трубопроводов</h1>
           <span class="hero-rule" aria-hidden="true"></span>
           <p class="hero-copy">Проектируем и монтируем инженерные системы для промышленных, коммерческих и инфраструктурных объектов.</p>
           <div class="hero-actions">
@@ -141,11 +141,12 @@
         <h2>Надежная команда для инженерных задач</h2>
       </div>
       <div class="about-copy">
-        <p class="about-lead">АРЕАЛ-ПРОМ проектирует и монтирует инженерные сети, технологические трубопроводы и металлоконструкции для промышленных, коммерческих и общественных объектов.</p>
+        <p class="about-lead">ООО «АРЕАЛ-ПРОМ» - строительная компания, выполняющая проектирование, монтаж и сопровождение инженерных систем для промышленных и коммерческих объектов.</p>
         <ul class="about-points">
-          <li>Работаем на новых и действующих площадках с учетом графика производства.</li>
-          <li>Берем ответственность за инженерную подготовку, монтаж, сварку и обвязку оборудования.</li>
-          <li>Передаем понятную исполнительную документацию и готовые к сдаче системы.</li>
+          <li>Проектируем и монтируем технологические трубопроводы, внутренние инженерные сети и металлоконструкции.</li>
+          <li>Работаем на новых и действующих производственных площадках в СЗФО и по всей России.</li>
+          <li>Берем ответственность за подготовку, поставки, монтаж, сварочные работы, обвязку оборудования и координацию подрядчиков.</li>
+          <li>Передаем готовые к сдаче системы с исполнительной документацией и контролем сроков на каждом этапе.</li>
         </ul>
       </div>
     </section>
@@ -189,39 +190,40 @@
       <div class="document-list" id="documents-list"></div>
     </section>
 
-    <section class="section cta-section" id="request">
-      <div>
+    <section class="section contact-request" id="request">
+      <div class="request-column">
+        <div>
         <p class="eyebrow">Заявка</p>
         <h2>Получить коммерческое предложение</h2>
         <p>Оставьте телефон и кратко опишите задачу. Мы свяжемся с вами, уточним исходные данные и предложим следующий шаг.</p>
+        </div>
+        <form class="request-form" data-request-form>
+          <label>Имя<input type="text" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+          <label>Телефон<input type="tel" name="phone" autocomplete="tel" required placeholder="+7 ___ ___-__-__"></label>
+          <label>Компания<input type="text" name="company_name" autocomplete="organization" placeholder="Название компании"></label>
+          <label>Комментарий<textarea name="message" rows="4" placeholder="Объект, вид работ, сроки"></textarea></label>
+          <input type="text" name="company" class="honeypot" tabindex="-1" autocomplete="off">
+          <p class="form-note">Ответим в течение одного рабочего дня. Нажимая кнопку, вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a>.</p>
+          <button class="btn" type="submit">Получить коммерческое предложение</button>
+          <p class="form-status" data-form-status role="status"></p>
+        </form>
       </div>
-      <form class="request-form" data-request-form>
-        <label>Имя<input type="text" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
-        <label>Телефон<input type="tel" name="phone" autocomplete="tel" required placeholder="+7 ___ ___-__-__"></label>
-        <label>Компания<input type="text" name="company_name" autocomplete="organization" placeholder="Название компании"></label>
-        <label>Комментарий<textarea name="message" rows="4" placeholder="Объект, вид работ, сроки"></textarea></label>
-        <input type="text" name="company" class="honeypot" tabindex="-1" autocomplete="off">
-        <p class="form-note">Ответим в течение одного рабочего дня. Нажимая кнопку, вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a>.</p>
-        <button class="btn" type="submit">Получить коммерческое предложение</button>
-        <p class="form-status" data-form-status role="status"></p>
-      </form>
-    </section>
-
-    <section class="section contacts" id="contacts">
-      <div class="contacts-info">
-        <p class="eyebrow">Контакты</p>
-        <h2>Связаться с нами</h2>
-        <ul>
-          <li><span>Телефон</span><a href="tel:+79215317136">+7 921 531-71-36</a></li>
-          <li><span>Почта</span><a href="mailto:info@areal-prom.ru">info@areal-prom.ru</a></li>
-          <li><span>Telegram</span><a href="https://t.me/areal_prom" target="_blank" rel="noreferrer">@areal_prom</a></li>
-          <li><span>Режим работы</span><strong>Пн-Пт, 09:00-18:00</strong></li>
-          <li><span>Офис</span><address>162623, Вологодская область, г. о. город Череповец, г. Череповец, ул. Олимпийская, д. 77, офис 216/1</address></li>
-        </ul>
-      </div>
-      <div class="map-card" aria-label="Карта с адресом офиса">
-        <div class="map-placeholder" data-map-placeholder>
-          <p>Загрузка карты офиса</p>
+      <div class="contact-column" id="contacts">
+        <div class="contacts-info">
+          <p class="eyebrow">Контакты</p>
+          <h2>Связаться с нами</h2>
+          <ul>
+            <li><span>Телефон</span><a href="tel:+79215317136">+7 921 531-71-36</a></li>
+            <li><span>Почта</span><a href="mailto:info@areal-prom.ru">info@areal-prom.ru</a></li>
+            <li><span>Telegram</span><a href="https://t.me/areal_prom" target="_blank" rel="noreferrer">@areal_prom</a></li>
+            <li><span>Режим работы</span><strong>Пн-Пт, 09:00-18:00</strong></li>
+            <li><span>Офис</span><address>162623, Вологодская область, г. о. город Череповец, г. Череповец, ул. Олимпийская, д. 77, офис 216/1</address></li>
+          </ul>
+        </div>
+        <div class="map-card" aria-label="Карта с адресом офиса">
+          <div class="map-placeholder" data-map-placeholder>
+            <p>Загрузка карты офиса</p>
+          </div>
         </div>
       </div>
     </section>

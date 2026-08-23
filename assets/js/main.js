@@ -242,7 +242,9 @@ function renderProjectDetail(items) {
         <h2>Проект и выполненные работы</h2>
         <section class="project-gallery" data-project-gallery data-images="${gallery.join('|')}">
           <div class="project-gallery-frame">
-            <img src="${gallery[0]}" alt="Фотография объекта: ${item.title}" data-project-gallery-image>
+            <img class="project-gallery-preview project-gallery-preview-prev" src="${gallery[gallery.length - 1]}" alt="" aria-hidden="true" data-project-gallery-preview-prev>
+            <img class="project-gallery-image" src="${gallery[0]}" alt="Фотография объекта: ${item.title}" data-project-gallery-image>
+            <img class="project-gallery-preview project-gallery-preview-next" src="${gallery[1] || gallery[0]}" alt="" aria-hidden="true" data-project-gallery-preview-next>
           </div>
           <button class="project-gallery-arrow project-gallery-arrow-prev" type="button" data-project-gallery-prev aria-label="Предыдущая фотография">←</button>
           <button class="project-gallery-arrow project-gallery-arrow-next" type="button" data-project-gallery-next aria-label="Следующая фотография">→</button>
@@ -267,12 +269,16 @@ function initProjectGallery() {
 
   const images = gallery.dataset.images.split('|').filter(Boolean);
   const image = gallery.querySelector('[data-project-gallery-image]');
+  const previousPreview = gallery.querySelector('[data-project-gallery-preview-prev]');
+  const nextPreview = gallery.querySelector('[data-project-gallery-preview-next]');
   const previous = gallery.querySelector('[data-project-gallery-prev]');
   const next = gallery.querySelector('[data-project-gallery-next]');
   let position = 0;
 
   const update = () => {
     image.src = images[position];
+    previousPreview.src = images[(position - 1 + images.length) % images.length];
+    nextPreview.src = images[(position + 1) % images.length];
     previous.disabled = position === 0;
     next.disabled = position === images.length - 1;
   };
