@@ -97,8 +97,7 @@ function renderServices(items) {
   const target = document.querySelector('#services-list');
   if (!target) return;
   target.innerHTML = items.map(item => `
-    <a class="service-card" id="${item.id}" href="service.html?id=${encodeURIComponent(item.id)}">
-      <div class="service-icon">${item.iconImage ? `<img src="${item.iconImage}" alt="" aria-hidden="true">` : (SERVICE_ICONS[item.icon] || SERVICE_ICONS.default)}</div>
+    <a class="service-card" id="${item.id}" href="service.html?id=${encodeURIComponent(item.id)}" style="--service-background: url('${item.backgroundImage || ''}')">
       <h3>${item.title}</h3>
       <p>${item.description}</p>
       <span class="service-link">Подробнее <span aria-hidden="true">→</span></span>
