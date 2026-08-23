@@ -135,24 +135,6 @@ function renderDocuments(items) {
   `).join('');
 }
 
-function initQuickNav() {
-  const quickNav = document.querySelector('[data-quick-nav]');
-  if (!quickNav) return;
-
-  if (!('IntersectionObserver' in window)) {
-    quickNav.classList.add('is-visible');
-    return;
-  }
-
-  const observer = new IntersectionObserver(entries => {
-    if (entries.some(entry => entry.isIntersecting)) {
-      quickNav.classList.add('is-visible');
-      observer.disconnect();
-    }
-  }, { threshold: .35 });
-  observer.observe(quickNav);
-}
-
 function renderServiceDetail(items) {
   const target = document.querySelector('[data-service-detail]');
   if (!target) return;
@@ -311,4 +293,3 @@ if (form) {
 initFooter();
 initContent();
 initMap();
-initQuickNav();
