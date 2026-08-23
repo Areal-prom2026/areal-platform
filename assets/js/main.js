@@ -101,7 +101,6 @@ function renderServices(items) {
       <div class="service-icon">${item.iconImage ? `<img src="${item.iconImage}" alt="" aria-hidden="true">` : (SERVICE_ICONS[item.icon] || SERVICE_ICONS.default)}</div>
       <h3>${item.title}</h3>
       <p>${item.description}</p>
-      <ul>${item.works.slice(0, 3).map(work => `<li>${work}</li>`).join('')}</ul>
       <span class="service-link">Подробнее <span aria-hidden="true">→</span></span>
     </a>
   `).join('');
@@ -119,10 +118,6 @@ function renderProjects(items) {
         <p class="project-meta">${item.location} <span aria-hidden="true">/</span> ${item.type}</p>
         <h3>${item.title}</h3>
         <p>${item.description}</p>
-        <dl>
-          <div><dt>Задача</dt><dd>${item.tasks}</dd></div>
-          <div><dt>Результат</dt><dd>${item.result}</dd></div>
-        </dl>
         <span class="service-link">Смотреть кейс <span aria-hidden="true">→</span></span>
       </div>
     </a>
