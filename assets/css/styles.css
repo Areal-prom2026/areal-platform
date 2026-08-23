@@ -699,6 +699,9 @@ address { font-style: normal; color: var(--blue); font-weight: 800; }
   background: linear-gradient(90deg, rgba(4,15,29,.92) 0%, rgba(4,15,29,.74) 64%, rgba(4,15,29,.28) 100%), url('../img/fon_main5.png') center / cover no-repeat;
 }
 .detail-service-hero > div { max-width: min(68vw, 970px); }
+.detail-breadcrumb { display: flex; align-items: center; gap: 9px; margin-bottom: 20px; color: rgba(255,255,255,.64); font-size: 14px; font-weight: 800; text-transform: uppercase; }
+.detail-breadcrumb a { color: var(--orange); transition: color .2s ease; }
+.detail-breadcrumb a:hover, .detail-breadcrumb a:focus-visible { color: var(--white); }
 .detail-hero h1 { font-size: clamp(42px, 5vw, 76px); }
 .detail-hero p { color: rgba(255,255,255,.78); font-size: 22px; }
 .detail-visual {

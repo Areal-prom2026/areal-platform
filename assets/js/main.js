@@ -188,7 +188,9 @@ function renderServiceDetail(items) {
   target.innerHTML = `
     <section class="detail-hero detail-service-hero">
       <div>
-        <p class="hero-eyebrow">Услуга</p>
+        <nav class="detail-breadcrumb" aria-label="Навигация по странице">
+          <a href="index.html#top">Главная</a><span aria-hidden="true">/</span><span>Услуги</span>
+        </nav>
         <h1>${item.title}</h1>
         <p>${item.description}</p>
         <a class="btn" href="index.html#request">Получить расчет стоимости</a>
@@ -237,7 +239,9 @@ function renderProjectDetail(items) {
   target.innerHTML = `
     <section class="detail-hero detail-service-hero">
       <div>
-        <p class="hero-eyebrow">Объект</p>
+        <nav class="detail-breadcrumb" aria-label="Навигация по странице">
+          <a href="index.html#top">Главная</a><span aria-hidden="true">/</span><span>Объекты</span>
+        </nav>
         <h1>${item.title}</h1>
         <p>${item.description}</p>
         <a class="btn" href="index.html#request">Обсудить похожий проект</a>
