@@ -250,7 +250,7 @@ p, h1, h2, h3 { margin-top: 0; }
   align-content: center;
 }
 .hero-content {
-  max-width: min(62vw, 880px);
+  max-width: min(62vw, 720px);
   padding-top: 0;
 }
 .hero-eyebrow {
@@ -577,6 +577,8 @@ h3 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(36px, 5vw, 82px);
+  width: 58.82%;
+  margin-inline: auto;
   background: var(--soft);
 }
 .request-column { display: grid; align-content: start; gap: 28px; }
@@ -874,6 +876,7 @@ address { font-style: normal; color: var(--blue); font-weight: 800; }
   .cta-section,
   .contacts,
   .gallery-grid { grid-template-columns: 1fr; }
+  .contact-request { width: auto; margin-inline: 0; }
   .project-case { flex-basis: 100%; }
   .quick-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-left: 28px; padding-right: 28px; }
   .quick-nav a:nth-child(3n) { border-right: 1px solid rgba(184, 202, 219, .42); }
