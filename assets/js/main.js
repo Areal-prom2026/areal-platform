@@ -131,28 +131,25 @@ function initProjectsCarousel() {
 
   const previous = carousel.querySelector('[data-projects-prev]');
   const next = carousel.querySelector('[data-projects-next]');
-  const counter = carousel.querySelector('[data-projects-counter]');
-  let page = 0;
+  let position = 0;
 
   const visibleCards = () => window.matchMedia('(max-width: 820px)').matches ? 1 : window.matchMedia('(max-width: 1120px)').matches ? 2 : 3;
-  const pageCount = () => Math.max(1, Math.ceil(track.children.length / visibleCards()));
 
   const update = () => {
     const cards = track.children;
     const visible = visibleCards();
-    const total = pageCount();
-    page = Math.min(page, total - 1);
+    const maximum = Math.max(0, cards.length - visible);
+    position = Math.min(position, maximum);
     const firstCard = cards[0];
     const gap = Number.parseFloat(getComputedStyle(track).gap) || 0;
-    const offset = firstCard ? page * visible * (firstCard.getBoundingClientRect().width + gap) : 0;
+    const offset = firstCard ? position * (firstCard.getBoundingClientRect().width + gap) : 0;
     track.style.transform = `translateX(-${offset}px)`;
-    previous.disabled = page === 0;
-    next.disabled = page === total - 1;
-    counter.textContent = `${String(page + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+    previous.disabled = position === 0;
+    next.disabled = position === maximum;
   };
 
-  previous.addEventListener('click', () => { page -= 1; update(); });
-  next.addEventListener('click', () => { page += 1; update(); });
+  previous.addEventListener('click', () => { position -= 1; update(); });
+  next.addEventListener('click', () => { position += 1; update(); });
   window.addEventListener('resize', update, { passive: true });
   update();
 }
@@ -224,6 +221,7 @@ function renderProjectDetail(items) {
   if (!target) return;
   const slug = getSlug();
   const item = items.find(project => project.id === slug) || items[0];
+  const gallery = item.gallery?.length ? item.gallery : [item.image];
   document.title = `${item.title} - АРЕАЛ-ПРОМ`;
   target.innerHTML = `
     <section class="detail-hero detail-service-hero">
@@ -240,15 +238,44 @@ function renderProjectDetail(items) {
         <h2>Проект и выполненные работы</h2>
       </aside>
       <div class="detail-list">
+        <section class="project-gallery" data-project-gallery data-images="${gallery.join('|')}">
+          <div class="project-gallery-frame">
+            <img src="${gallery[0]}" alt="Фотография объекта: ${item.title}" data-project-gallery-image>
+            <button class="project-gallery-arrow project-gallery-arrow-prev" type="button" data-project-gallery-prev aria-label="Предыдущая фотография">←</button>
+            <button class="project-gallery-arrow project-gallery-arrow-next" type="button" data-project-gallery-next aria-label="Следующая фотография">→</button>
+          </div>
+        </section>
         <section><h3>Местоположение</h3><p>${item.location}</p></section>
         <section><h3>Тип объекта</h3><p>${item.type}</p></section>
         <section><h3>Срок / год</h3><p>${item.year || 'По согласованному графику'}</p></section>
-        <section><h3>Выполненные работы</h3><p>${item.works}</p></section>
+        <section><h3>Выполненные работы</h3>${item.worksList ? `<ul class="project-work-list">${item.worksList.map(work => `<li>${work}</li>`).join('')}</ul>` : `<p>${item.works}</p>`}</section>
         <section><h3>Основные характеристики и задачи</h3><p>${item.tasks}</p></section>
         <section><h3>Результат</h3><p>${item.result}</p></section>
       </div>
     </section>
   `;
+  initProjectGallery();
+}
+
+function initProjectGallery() {
+  const gallery = document.querySelector('[data-project-gallery]');
+  if (!gallery) return;
+
+  const images = gallery.dataset.images.split('|').filter(Boolean);
+  const image = gallery.querySelector('[data-project-gallery-image]');
+  const previous = gallery.querySelector('[data-project-gallery-prev]');
+  const next = gallery.querySelector('[data-project-gallery-next]');
+  let position = 0;
+
+  const update = () => {
+    image.src = images[position];
+    previous.disabled = position === 0;
+    next.disabled = position === images.length - 1;
+  };
+
+  previous.addEventListener('click', () => { position -= 1; update(); });
+  next.addEventListener('click', () => { position += 1; update(); });
+  update();
 }
 
 function initMap() {
