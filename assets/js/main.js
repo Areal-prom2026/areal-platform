@@ -67,6 +67,12 @@ const SERVICE_ICONS = {
     </svg>`
 };
 
+function closeMobileMenu() {
+  menuToggle?.setAttribute('aria-expanded', 'false');
+  nav?.classList.remove('is-open');
+  headerActions?.classList.remove('is-open');
+}
+
 if (menuToggle && nav) {
   menuToggle.addEventListener('click', () => {
     const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
@@ -74,7 +80,11 @@ if (menuToggle && nav) {
     nav.classList.toggle('is-open', !isOpen);
     headerActions?.classList.toggle('is-open', !isOpen);
   });
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
 }
+
+window.addEventListener('pageshow', closeMobileMenu);
+window.addEventListener('pagehide', closeMobileMenu);
 
 function updateHeaderState() {
   if (!header) return;

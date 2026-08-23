@@ -581,7 +581,7 @@ h3 {
   margin-inline: auto;
   background: var(--soft);
 }
-.request-column { display: grid; align-content: start; gap: 28px; }
+.request-column { display: grid; align-content: start; gap: 20px; }
 .contact-column {
   display: grid;
   grid-template-columns: 1fr;
@@ -593,22 +593,22 @@ h3 {
 .contact-column .map-card { min-height: 420px; }
 .request-form {
   display: grid;
-  gap: 16px;
-  padding: clamp(22px, 4vw, 36px);
+  gap: 12px;
+  padding: clamp(17px, 3vw, 28px);
   background: var(--white);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
 label {
   display: grid;
-  gap: 8px;
+  gap: 6px;
   font-weight: 800;
   color: var(--blue);
 }
 input, textarea {
   width: 100%;
   border: 1px solid #cbd4df;
-  padding: 14px 15px;
+  padding: 11px 13px;
   color: var(--graphite);
   font: inherit;
   background: var(--white);
