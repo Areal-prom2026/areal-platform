@@ -93,6 +93,11 @@ function getSlug() {
   return new URLSearchParams(window.location.search).get('id');
 }
 
+function capitalizeWork(work) {
+  const text = String(work || '');
+  return text ? text.charAt(0).toUpperCase() + text.slice(1) : text;
+}
+
 function renderServices(items) {
   const target = document.querySelector('#services-list');
   if (!target) return;
@@ -185,7 +190,7 @@ function renderServiceDetail(items) {
       </aside>
       <div class="detail-list">
         <section class="service-theses">
-          <ul>${item.works.map(work => `<li>${work}</li>`).join('')}</ul>
+          <ul>${item.works.map(work => `<li>${capitalizeWork(work)}</li>`).join('')}</ul>
         </section>
         <section class="service-explainer">
           <h3>Подробно об услуге</h3>
@@ -195,7 +200,7 @@ function renderServiceDetail(items) {
           <h3>Состав работ</h3>
           ${item.works.map((work, index) => `
           <section>
-            <h3>${String(index + 1).padStart(2, '0')}. ${work}</h3>
+            <h3>${String(index + 1).padStart(2, '0')}. ${capitalizeWork(work)}</h3>
             <p>${item.details?.[index] || 'Работы выполняются по проекту, с учетом требований объекта, нормативной документации и дальнейшей эксплуатации.'}</p>
           </section>
           `).join('')}
