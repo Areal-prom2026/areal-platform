@@ -232,12 +232,10 @@ function renderProjectDetail(items) {
         <a class="btn" href="index.html#request">Обсудить похожий проект</a>
       </div>
     </section>
-    <section class="detail-layout">
+    <section class="detail-layout project-detail-layout">
       <aside class="detail-aside">
         <p class="eyebrow">Паспорт объекта</p>
         <h2>Проект и выполненные работы</h2>
-      </aside>
-      <div class="detail-list">
         <section class="project-gallery" data-project-gallery data-images="${gallery.join('|')}">
           <div class="project-gallery-frame">
             <img src="${gallery[0]}" alt="Фотография объекта: ${item.title}" data-project-gallery-image>
@@ -245,6 +243,8 @@ function renderProjectDetail(items) {
             <button class="project-gallery-arrow project-gallery-arrow-next" type="button" data-project-gallery-next aria-label="Следующая фотография">→</button>
           </div>
         </section>
+      </aside>
+      <div class="detail-list">
         <section><h3>Местоположение</h3><p>${item.location}</p></section>
         <section><h3>Тип объекта</h3><p>${item.type}</p></section>
         <section><h3>Срок / год</h3><p>${item.year || 'По согласованному графику'}</p></section>
