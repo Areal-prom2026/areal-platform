@@ -185,8 +185,8 @@ function renderServiceDetail(items) {
       </div>
     </section>
     <section class="detail-layout">
-      <aside class="detail-aside detail-render">
-        <img src="${item.iconImage || 'assets/img/service-pipelines-render.png'}" alt="3D-рендер: ${item.title}">
+      <aside class="detail-aside detail-service-photo">
+        <img src="${item.backgroundImage}" alt="${item.title}">
       </aside>
       <div class="detail-list">
         <section class="service-theses">
