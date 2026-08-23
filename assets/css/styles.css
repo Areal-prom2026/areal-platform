@@ -437,7 +437,7 @@ h3 {
 .about-section { display: grid; grid-template-columns: minmax(300px, 520px) minmax(0, 1fr); gap: 70px; align-items: start; }
 .about-heading { max-width: 520px; }
 .about-heading h2 { padding-left: 18px; border-left: 5px solid var(--orange); }
-.about-copy { min-width: 0; padding-top: 4px; border-left: 1px solid rgba(10,31,53,.22); }
+.about-copy { min-width: 0; padding: 4px 0 0 36px; border-left: 1px solid rgba(10,31,53,.22); }
 .about-lead { max-width: 900px; margin-bottom: 26px; color: #46515d; font-size: 21px; font-weight: 600; line-height: 1.38; }
 .about-points { display: grid; gap: 14px; max-width: 900px; margin: 0; padding: 0; color: #46515d; font-size: 17px; line-height: 1.4; list-style: none; }
 .about-points li { position: relative; padding-left: 18px; }
@@ -691,7 +691,7 @@ address { font-style: normal; color: var(--blue); font-weight: 800; }
   align-items: center;
   color: var(--white);
   background: var(--blue);
-  padding: 88px clamp(18px, 5vw, 80px) 52px;
+  padding: 128px clamp(18px, 5vw, 80px) 52px;
 }
 .detail-service-hero {
   min-height: min(414px, 51vh);
@@ -732,16 +732,17 @@ address { font-style: normal; color: var(--blue); font-weight: 800; }
   filter: drop-shadow(20px 24px 20px rgba(10,31,53,.22));
 }
 .detail-service-photo {
-  position: sticky;
-  top: 128px;
+  position: static;
+  top: auto;
   align-self: start;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   padding: 0;
   border-left: 0;
   background: var(--blue);
 }
 .detail-service-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.service-full-details { grid-column: 1 / -1; }
 .detail-list {
   display: grid;
   gap: 12px;
@@ -909,7 +910,7 @@ address { font-style: normal; color: var(--blue); font-weight: 800; }
   .detail-hero h1 { font-size: clamp(24px, 7.6vw, 38px); }
   .detail-hero p { font-size: clamp(16px, 4.4vw, 19px); }
   .detail-layout { gap: 28px; }
-  .detail-service-photo { position: static; width: 100%; aspect-ratio: 1 / 1; }
+  .detail-service-photo { position: static; width: 100%; aspect-ratio: 16 / 9; }
   .projects-carousel { display: grid; grid-template-columns: 1fr 40px 40px 1fr; gap: 12px; }
   .projects-viewport { grid-column: 1 / -1; grid-row: 1; }
   .projects-arrow { position: static; width: 40px; height: 40px; margin-top: 0; transform: none; }

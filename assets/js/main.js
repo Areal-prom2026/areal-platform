@@ -184,11 +184,11 @@ function renderServiceDetail(items) {
         <a class="btn" href="index.html#request">Получить расчет стоимости</a>
       </div>
     </section>
-    <section class="detail-layout">
+    <section class="detail-layout service-detail-layout">
       <aside class="detail-aside detail-service-photo">
         <img src="${item.backgroundImage}" alt="${item.title}">
       </aside>
-      <div class="detail-list">
+      <div class="detail-list service-intro">
         <section class="service-theses">
           <ul>${item.works.map(work => `<li>${capitalizeWork(work)}</li>`).join('')}</ul>
         </section>
@@ -196,6 +196,8 @@ function renderServiceDetail(items) {
           <h3>Подробно об услуге</h3>
           ${(item.longDescription || [item.description]).map(text => `<p>${text}</p>`).join('')}
         </section>
+      </div>
+      <div class="detail-list service-full-details">
         <section class="service-scope">
           <h3>Состав работ</h3>
           ${item.works.map((work, index) => `
