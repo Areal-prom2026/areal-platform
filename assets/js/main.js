@@ -212,11 +212,6 @@ function renderServiceDetail(items) {
         </section>
       </div>
     </section>
-    <section class="detail-cta">
-      <p class="eyebrow">Обсудим задачу</p>
-      <h2>Подготовим состав работ и расчет</h2>
-      <a class="btn" href="index.html#request">Получить расчет стоимости</a>
-    </section>
   `;
 }
 
